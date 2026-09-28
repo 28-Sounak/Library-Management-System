@@ -3,21 +3,30 @@ package ui;
 import java.awt.*;
 import javax.swing.*;
 
-public class CustomerHome extends JFrame 
+public class CustomerHome extends JFrame
 {
-
-    public CustomerHome() 
+    public CustomerHome()
     {
-
         setTitle("Customer Home");
-        setSize(600,400);
-        setLocationRelativeTo(null);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JLabel label = new JLabel("Hello, Customer", SwingConstants.CENTER);
-        label.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        setLayout(new BorderLayout());
 
-        add(label);
+        // Header
+        HeaderPanel header = new HeaderPanel("Sounak");
+
+        add(header, BorderLayout.NORTH);
+
+
+        // Main body
+        CustomerDashboardPanel dashboard = new CustomerDashboardPanel();
+
+        add(dashboard, BorderLayout.CENTER);
+
+
+        // Maximize
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         setVisible(true);
     }
